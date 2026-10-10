@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Penyusun IDP Donggala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: alat kerja tiga kolom — penanda langkah I–V di kiri, lembar isian di tengah, panel kelengkapan di kanan; menumpuk satu kolom di ponsel */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --surface-2:#eaf0ee; --ink:#15262b; --muted:#56686c; --line:#d5dfdc;
+  --accent:#0d5a63; --accent-ink:#ffffff; --accent-soft:#d8ebea; --kunyit:#b8741a; --kunyit-soft:#f6e7cf;
+  --ok:#2d7a46; --ok-soft:#dcefe2; --warn:#a2610b; --warn-soft:#fbecd2; --bad:#b23a32; --bad-soft:#f8dedb;
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1719; --surface:#162226; --surface-2:#1c2c31; --ink:#e3ecea; --muted:#9fb1b3; --line:#2b3e43;
+  --accent:#5fb7bd; --accent-ink:#082326; --accent-soft:#1d3a3e; --kunyit:#e3a54d; --kunyit-soft:#3a2c17;
+  --ok:#6cc58a; --ok-soft:#1c3324; --warn:#e8ad55; --warn-soft:#3a2b14; --bad:#ec7f76; --bad-soft:#3d1f1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1719; --surface:#162226; --surface-2:#1c2c31; --ink:#e3ecea; --muted:#9fb1b3; --line:#2b3e43;
+  --accent:#5fb7bd; --accent-ink:#082326; --accent-soft:#1d3a3e; --kunyit:#e3a54d; --kunyit-soft:#3a2c17;
+  --ok:#6cc58a; --ok-soft:#1c3324; --warn:#e8ad55; --warn-soft:#3a2b14; --bad:#ec7f76; --bad-soft:#3d1f1c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
+header.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between;padding-block:22px 18px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.brand h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.brand p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+.brand .eyebrow{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--kunyit)}
+.drafts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.drafts label{font-size:.82rem;color:var(--muted)}
+select,input,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%;min-width:0}
+textarea{min-height:84px;resize:vertical}
+select:focus,input:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.drafts select{width:auto;max-width:260px}
+button{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;font-weight:600}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+button.ghost{background:transparent}
+button.small{padding:5px 10px;font-size:.85rem}
+button.danger{color:var(--bad)}
+button[disabled]{opacity:.5;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:230px minmax(0,1fr) 290px;gap:22px;align-items:start}
+nav.steps{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);display:flex;flex-direction:column;gap:4px}
+.step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;text-align:left;border:1px solid transparent;background:transparent;padding:9px 10px;font-weight:600}
+.step .num{font-family:var(--f-display);font-weight:700;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);color:var(--muted);font-size:.9rem}
+.step .lbl{font-size:.93rem;line-height:1.25}
+.step .lbl small{display:block;font-weight:400;color:var(--muted);font-size:.78rem}
+.step.active{background:var(--surface);border-color:var(--line)}
+.step.active .num{background:var(--accent);color:var(--accent-ink)}
+.step.done .num{background:var(--ok-soft);color:var(--ok)}
+.step.done.active .num{background:var(--accent);color:var(--accent-ink)}
+main.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px clamp(16px,3vw,32px);min-width:0}
+.sec-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:6px}
+.sec-head .roman{font-family:var(--f-display);font-weight:700;color:var(--kunyit);font-size:1.6rem}
+.sec-head h2{font-family:var(--f-display);font-size:1.45rem;margin:0;text-wrap:balance}
+.lede{color:var(--muted);margin:0 0 20px;max-width:68ch}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.f{display:flex;flex-direction:column;gap:5px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-weight:600;font-size:.93rem}
+.f label .req{color:var(--bad);margin-left:2px}
+.f .hint{font-size:.8rem;color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.inline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.inline input{width:90px}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1 1 140px;padding:12px;text-align:left}
+.seg button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.seg button small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+.callout{border-radius:8px;padding:12px 14px;background:var(--surface-2);font-size:.92rem;margin:16px 0}
+.callout.kunyit{background:var(--kunyit-soft)}
+.callout b{font-weight:700}
+.tbl-wrap{overflow-x:auto;margin:6px 0 4px}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:middle}
+th{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.lv{display:flex;gap:4px}
+.lv button{width:36px;height:34px;padding:0;font-family:var(--f-mono);font-weight:500}
+.lv button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.lv button.target{box-shadow:inset 0 -3px 0 var(--kunyit)}
+.desc{font-size:.8rem;color:var(--muted);display:block;max-width:46ch}
+.rows{display:flex;flex-direction:column;gap:10px}
+.trow{display:grid;grid-template-columns:minmax(0,1fr) 120px 120px 38px;gap:8px;align-items:center}
+.trow .h{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.prog{border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:12px;background:var(--bg)}
+.prog-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.prog-head b{font-family:var(--f-display)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--surface-2);color:var(--muted)}
+.chip.k10{background:var(--accent-soft);color:var(--accent)}
+.chip.k20{background:var(--kunyit-soft);color:var(--kunyit)}
+.chip.k70{background:var(--ok-soft);color:var(--ok)}
+.nav-btns{display:flex;justify-content:space-between;gap:10px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line);flex-wrap:wrap}
+aside.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);display:flex;flex-direction:column;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.card h3{font-family:var(--f-display);font-size:1rem;margin:0 0 10px}
+.meter{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin:6px 0 4px}
+.meter i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.big{font-family:var(--f-display);font-size:2rem;font-weight:700;line-height:1}
+.checks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;font-size:.86rem}
+.checks li{display:grid;grid-template-columns:18px 1fr;gap:8px;align-items:start}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:6px}
+.dot.bad{background:var(--bad)} .dot.warn{background:var(--warn)} .dot.ok{background:var(--ok)}
+.mix{display:flex;height:10px;border-radius:99px;overflow:hidden;background:var(--surface-2);margin:8px 0}
+.mix span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.78rem;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:middle}
+.banner{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--kunyit-soft);border-radius:var(--r);padding:12px 16px;margin-bottom:18px;font-size:.93rem}
+.ai{border:1px dashed var(--accent);border-radius:var(--r);padding:14px;margin-top:16px;background:var(--accent-soft)}
+.ai h4{margin:0 0 4px;font-size:.95rem}
+.ai p{margin:0 0 10px;font-size:.85rem;color:var(--muted)}
+.sugg{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.sugg .it{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:.9rem}
+.sugg .it small{color:var(--muted);display:block}
+.copy-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.copy-row{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr) auto;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);align-items:start}
+.copy-row:last-child{border-bottom:0}
+.copy-row .q{font-weight:600;font-size:.86rem}
+.copy-row .q small{display:block;font-weight:400;color:var(--muted)}
+.copy-row .a{white-space:pre-wrap;font-size:.9rem;word-break:break-word}
+.copy-row .a.empty{color:var(--bad);font-style:italic}
+.copy-group{background:var(--surface-2);padding:7px 14px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.doc{background:#fff;color:#111;border:1px solid var(--line);border-radius:6px;padding:clamp(16px,4vw,44px);font-family:"Times New Roman",Tinos,Georgia,serif;font-size:14px;line-height:1.45;overflow-x:auto}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:.9rem;z-index:20}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.88rem}
+footer.note{margin-top:28px;color:var(--muted);font-size:.82rem;max-width:90ch}
+@media (max-width:1100px){.grid{grid-template-columns:200px minmax(0,1fr)} aside.panel{grid-column:1/-1;position:static;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
+@media (max-width:760px){
+  .grid{grid-template-columns:minmax(0,1fr)}
+  nav.steps{position:static;flex-direction:row;overflow-x:auto;padding-bottom:4px}
+  .step{grid-template-columns:30px auto;flex:0 0 auto}
+  .step .num{width:30px;height:30px}
+  .step .lbl small{display:none}
+  .fields{grid-template-columns:minmax(0,1fr)}
+  .trow{grid-template-columns:minmax(0,1fr) 92px 38px}
+  .trow .now{display:none}
+  .copy-row{grid-template-columns:minmax(0,1fr) auto}
+  .copy-row .a{grid-column:1/-1;grid-row:2}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="eyebrow">Individual Development Plan · ASN Kabupaten Donggala</div>
+      <h1>Penyusun IDP Donggala</h1>
+      <p>Susun rencana pengembangan kompetensi satu tahun, periksa mutunya, lalu salin ke formulir resmi.</p>
+    </div>
+    <div class="drafts">
+      <label for="draftSel">Draf di perangkat ini</label>
+      <select id="draftSel"></select>
+      <button class="small" id="btnNew">+ Draf baru</button>
+      <span id="delWrap"></span>
+    </div>
+  </header>
+
+  <div id="banner"></div>
+
+  <div class="grid">
+    <nav class="steps" id="steps" aria-label="Langkah penyusunan"></nav>
+    <main class="sheet" id="sheet"></main>
+    <aside class="panel" id="panel"></aside>
+  </div>
+
+  <footer class="note">
+    Acuan: format Formulir IDP (Bagian I–V), Panduan Pengisian IDP Bagian III, PermenPAN-RB No. 38 Tahun 2017 (skala kemahiran kompetensi manajerial dan sosial kultural), dan jalur pengembangan kompetensi menurut Peraturan LAN No. 10 Tahun 2018.
+    Daftar kompetensi teknis dan program di aplikasi ini hanya contoh; sesuaikan dengan Kamus Kompetensi Teknis instansi pembina, SKJ, SKP, dan HCDP perangkat daerah Anda.
+    Draf tersimpan di peramban perangkat ini saja. Simpan file draf (.json) untuk cadangan atau berpindah perangkat.
+  </footer>
+</div>
+
+<input type="file" id="fileIn" accept=".json,application/json" hidden>
+
+<script>
+(() => {
+"use strict";
+
+/* ---------- Data acuan ---------- */
+const RUMPUN = ["10 Transmigrasi","11 Perindustrian","12 Perdagangan","14 Kehutanan","15 Pertanian","16 Pariwisata","17 Kelautan dan Perikanan","18 Kearsipan","19 Perpustakaan","20 Kebudayaan","21 Keamanan Siber dan Persandian","22 Statistik","23 Kepemudaan dan Olahraga","24 Penanaman Modal","26 Komunikasi dan Informatika","27 Perhubungan","28 Pengendalian Penduduk dan Keluarga Berencana","29 Pembangunan Desa dan Daerah Tertinggal","31 Lingkungan Hidup","32 Pertanahan","33 Pangan","34 Pemberdayaan Perempuan dan Perlindungan Anak","35 Tenaga Kerja","36 Sosial","38 Perumahan Rakyat dan Kawasan Permukiman","39 Pekerjaan Umum dan Penataan Ruang","40 Kesehatan","41 Pendidikan","67 Koperasi","68 Hukum","69 Pembinaan BUMN/BUMD","70 Aparatur Negara/Kepegawaian","71 Dalam Negeri","72 Luar Negeri","73 Keuangan","74 Energi dan Sumber Daya Mineral","75 Keagamaan","76 Hak Asasi Manusia","77 Imigrasi dan Pemasyarakatan","78 Usaha Mikro, Kecil, dan Menengah","79 Kesekretariatan Negara","80 Penuntutan","81 Intelijen","82 Kesekretariatan Lembaga Legislatif","83 Peradilan Umum","84 Pemeriksa Keuangan Negara","85 Ketahanan Nasional","86 Perencanaan Pembangunan Nasional","87 Informasi Geospasial","88 Pengawasan Keuangan Negara","89 Standardisasi Industri dan Pelayanan Publik","90 Tenaga Nuklir","91 Pengawas Obat dan Makanan","92 Keamanan","93 Meteorologi, Klimatologi, dan Geofisika","94 Narkotika Nasional","95 Pemilihan Umum","96 Penanggulangan Bencana","97 Mahkamah Konstitusi","98 Tindak Pidana Korupsi","99 Perilaku Hakim","100 Patroli Keamanan Laut","101 Pengadaan Barang/Jasa Pemerintah","102 Anti Tindak Pidana Pencucian Uang","103 Pengawasan Pelayanan Publik","104 Penyiaran Publik","105 Penanggulangan Terorisme","107 Penelitian dan Inovasi","109 Pertahanan"];
+
+const JENJANG = {
+  Fungsional: [["Ahli Pertama",2],["Ahli Muda",3],["Ahli Madya",4],["Ahli Utama",5]],
+  Manajerial: [["Pengawas",2],["Administrator",3],["Jabatan Pimpinan Tinggi Pratama",4]]
+};
+const LEVEL_NAMA = {1:"Paham / Awareness",2:"Dasar / Basic",3:"Menengah / Intermediate",4:"Mumpuni / Advanced",5:"Ahli / Expert"};
+
+const MANAJERIAL = [
+  ["Integritas","Konsisten berperilaku selaras dengan nilai, norma, dan etika organisasi; jujur dalam hubungan kerja."],
+  ["Kerjasama","Menjalin, membina, dan mempertahankan hubungan kerja yang efektif; komitmen saling membantu."],
+  ["Komunikasi","Menerangkan pandangan dan gagasan secara jelas, sistematis, dan meyakinkan, lisan maupun tertulis."],
+  ["Orientasi pada hasil","Komitmen menyelesaikan tugas dengan standar kerja tinggi dan berupaya melampaui target."],
+  ["Pelayanan Publik","Melaksanakan tugas pelayanan publik secara profesional, transparan, dan mengikuti standar."],
+  ["Pengembangan Diri dan Orang Lain","Meningkatkan pengetahuan dan keterampilan diri serta menginspirasi orang lain untuk berkembang."],
+  ["Mengelola Perubahan","Menyesuaikan diri dengan situasi baru dan mendukung perubahan organisasi."],
+  ["Pengambilan Keputusan","Membuat keputusan tepat waktu dan yakin setelah mempertimbangkan prinsip kehati-hatian."]
+];
+const SOSIAL_DESC = "Perekat Bangsa: mempromosikan sikap toleransi, keterbukaan, dan peka terhadap perbedaan; menjadi perpanjangan tangan pemerintah dalam mempersatukan masyarakat.";
+
+/* Jalur pengembangan (Peraturan LAN 10/2018) dengan kategori 10-20-70 */
+const METODE = [
+  {g:"Pendidikan formal", k:"10", items:["Tugas belajar","Izin belajar"]},
+  {g:"Pelatihan klasikal", k:"10", items:["Pelatihan kepemimpinan (PKP/PKA/PKN)","Pelatihan fungsional (pembentukan/penjenjangan)","Pelatihan teknis","Bimbingan teknis","Seminar/konferensi","Workshop/lokakarya","Kursus","Sosialisasi/penataran"]},
+  {g:"Belajar mandiri & jarak jauh", k:"10", items:["E-learning","Pelatihan jarak jauh","Belajar mandiri"]},
+  {g:"Belajar dari orang lain", k:"20", items:["Coaching","Mentoring","Komunitas belajar","Job shadowing","Patok banding (benchmarking)"]},
+  {g:"Belajar dari pengalaman kerja", k:"70", items:["Penugasan khusus","Bimbingan di tempat kerja","Magang/praktik kerja","Detasering (secondment)","Pertukaran PNS dengan pegawai swasta/BUMN/BUMD"]}
+];
+const METODE_K = {}; METODE.forEach(g => g.items.forEach(i => METODE_K[i] = g.k));
+
+/* Contoh kompetensi teknis per jabatan target (rujuk Kamus Kompetensi Teknis instansi pembina) */
+const TEKNIS_PRESET = [
+  {re:/auditor/i, label:"Auditor", items:["Perencanaan Penugasan Pengawasan","Audit Kinerja","Reviu Laporan Keuangan","Evaluasi SPIP dan Manajemen Risiko","Pelaporan Hasil Pengawasan"]},
+  {re:/ppupd|pengawas penyelenggaraan/i, label:"PPUPD", items:["Pengawasan Penyelenggaraan Urusan Pemerintahan Daerah","Pemeriksaan Kinerja Urusan Konkuren","Penanganan Pengaduan Masyarakat","Reviu dan Evaluasi Dokumen Perencanaan Daerah"]},
+  {re:/analis sdm|sdm aparatur|kepegawaian/i, label:"Analis SDM Aparatur", items:["Sistem Merit dan Perencanaan SDM Aparatur","Pengadaan dan Pemberhentian SDM Aparatur","Pengembangan Kompetensi SDM Aparatur","Manajemen Kinerja SDM Aparatur"]},
+  {re:/perencana/i, label:"Perencana", items:["Penyusunan Dokumen Perencanaan Pembangunan","Analisis Data dan Informasi Perencanaan","Pengendalian dan Evaluasi Rencana Pembangunan"]},
+  {re:/pranata komputer|komputer|informatika/i, label:"Pranata Komputer", items:["Tata Kelola Teknologi Informasi","Pengembangan Sistem Informasi","Infrastruktur Teknologi Informasi","Keamanan Informasi"]},
+  {re:/analis kebijakan/i, label:"Analis Kebijakan", items:["Analisis Kebijakan","Advokasi Kebijakan","Evaluasi Kebijakan"]},
+  {re:/keuangan|bendahara|akuntan|anggaran/i, label:"Pengelola Keuangan", items:["Perencanaan dan Penganggaran Daerah","Penatausahaan Keuangan Daerah","Akuntansi Pemerintahan","Penyusunan Laporan Keuangan Pemerintah Daerah"]},
+  {re:/guru/i, label:"Guru", items:["Pengembangan Kurikulum dan Pembelajaran","Asesmen Pembelajaran","Pembelajaran Berdiferensiasi","Literasi Digital Pembelajaran"]},
+  {re:/kepala (sub|seksi|bidang|bagian|dinas|badan)|camat|sekretaris|administrator|pengawas/i, label:"Jabatan Manajerial", items:["Perencanaan dan Penganggaran Program","Manajemen Kinerja Organisasi","Pengelolaan Barang Milik Daerah","Penerapan SPIP di Unit Kerja"]}
+];
+
+/* Contoh nama program dari HCDP (referensi; sesuaikan dengan HCDP perangkat daerah Anda) */
+const HCDP_REF = ["Pelatihan Kepemimpinan Pengawas (PKP)","Pelatihan Kepemimpinan Administrator (PKA)","Pelatihan Kepemimpinan Nasional (PKN)","Pelatihan Fungsional Perencana","Pelatihan Pembentukan Auditor Ahli Pertama","Penjenjangan Auditor Ahli Muda","Diklat Pembentukan PPUPD Ahli Pertama","Diklat Penjenjangan PPUPD Ahli Muda","Audit Pengadaan Barang dan Jasa Secara Elektronik","Probity Audit Pengadaan Barang/Jasa Konstruksi","Reviu RPJMD dan Renstra","Perencanaan Pengawasan Berbasis Risiko","Manajemen Risiko Organisasi Sektor Publik","Penulisan Laporan Hasil Audit Intern","Sistem Pengendalian Intern Pemerintah (SPIP)","Sistem Akuntabilitas Kinerja Instansi Pemerintah (SAKIP)","Teknik Komunikasi Efektif dan Public Speaking","Pemeriksaan Investigasi","Peningkatan Kapasitas Tim Penilai Zona Integritas","Teknik Audit Berbantuan Komputer (TABK)","Penilaian Kinerja Organisasi","Manajemen Barang Milik Daerah (BMD)","Analisis Pemecahan Masalah","Audit atas Pendapatan Asli Daerah","Audit Badan Layanan Umum Daerah","Data Analytics untuk Audit","Fraud Control Plan","Evaluasi AKIP","Evaluasi LPPD","Identifikasi dan Analisis Risiko","Penghitungan Kerugian Keuangan Negara"];
+
+const PENDIDIKAN = ["SMA/SMK sederajat","D-III","D-IV","S-1","S-2","S-3"];
+
+/* ---------- State & penyimpanan ---------- */
+const KEY = "idp-donggala-v1";
+const uid = () => Math.random().toString(36).slice(2,9);
+const nextYear = new Date().getFullYear() + 1;
+
+function blank(){
+  return {
+    contoh:false, periode:String(nextYear),
+    nama:"", nip:"", pendidikan:"", jurusan:"", tmt:"", mkTahun:"", mkBulan:"",
+    opd:"", jabatanNow:"", pangkat:"",
+    atasanNama:"", atasanNip:"", atasanJabatan:"",
+    jalur:"", jenjang:"", rumpun:"", harapan:"",
+    teknis:[{nama:"",now:"",level:""}],
+    manajerial:{}, sosial:"",
+    programs:[], setuju:false, tempat:"Donggala", tanggal:""
+  };
+}
+function contoh(){
+  const y = nextYear;
+  return Object.assign(blank(), {
+    contoh:true, nama:"Contoh Pegawai, S.E.", nip:"199001012015031000", pendidikan:"S-1", jurusan:"Akuntansi",
+    mkTahun:"11", mkBulan:"7", opd:"Inspektorat Daerah Kabupaten Donggala", jabatanNow:"Auditor Ahli Pertama", pangkat:"Penata Muda Tk. I (III/b)",
+    atasanNama:"Contoh Atasan, S.H., M.H.", atasanNip:"197805102003121000", atasanJabatan:"Inspektur Pembantu Wilayah I",
+    jalur:"Fungsional", jenjang:"Ahli Muda", rumpun:"88 Pengawasan Keuangan Negara", harapan:"Auditor Ahli Muda",
+    teknis:[{nama:"Audit Kinerja",now:"2",level:"3"},{nama:"Reviu Laporan Keuangan",now:"2",level:"3"},{nama:"Evaluasi SPIP dan Manajemen Risiko",now:"2",level:"3"}],
+    manajerial:Object.fromEntries(MANAJERIAL.map(m=>[m[0],"3"])), sosial:"3",
+    programs:[
+      {id:uid(),kompetensi:"Audit Kinerja",indikator:"Level 3: mampu menyusun program kerja audit kinerja dan menilai capaian indikator kinerja OPD",sumber:"SKJ",metode:"Pelatihan fungsional (pembentukan/penjenjangan)",aktivitas:"Penjenjangan Auditor Ahli Muda",mulai:`${y}-03-01`,selesai:`${y}-04-15`,biaya:"15000000"},
+      {id:uid(),kompetensi:"Audit Kinerja",indikator:"Menerapkan teknik pengujian bukti audit kinerja secara mandiri",sumber:"SKP",metode:"Coaching",aktivitas:"Coaching oleh Pengendali Teknis pada penugasan audit kinerja dua OPD",mulai:`${y}-05-01`,selesai:`${y}-08-31`,biaya:"0"},
+      {id:uid(),kompetensi:"Evaluasi SPIP dan Manajemen Risiko",indikator:"Level 3: mampu menilai maturitas SPIP dan register risiko OPD",sumber:"HCDP",metode:"Penugasan khusus",aktivitas:"Anggota tim penilaian maturitas SPIP dan MRI pemerintah daerah",mulai:`${y}-06-01`,selesai:`${y}-09-30`,biaya:"0"},
+      {id:uid(),kompetensi:"Reviu Laporan Keuangan",indikator:"Memahami SAP berbasis akrual untuk reviu LKPD",sumber:"SKJ",metode:"E-learning",aktivitas:"E-learning Standar Akuntansi Pemerintahan (platform pembelajaran ASN)",mulai:`${y}-02-01`,selesai:`${y}-02-28`,biaya:"0"}
+    ],
+    setuju:false
+  });
+}
+
+let mem = null;
+function loadStore(){
+  try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch(e){}
+  return mem;
+}
+function saveStore(){
+  store.drafts[store.active].updated = Date.now();
+  mem = store;
+  try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e){}
+}
+let store = loadStore();
+if (!store || !store.drafts || !Object.keys(store.drafts).length){
+  const id = uid(); store = {active:id, drafts:{[id]:{state:contoh(), updated:Date.now()}}, step:0};
+}
+if (!store.drafts[store.active]) store.active = Object.keys(store.drafts)[0];
+let S = store.drafts[store.active].state;
+let step = Number(store.step)||0;
+let hasilTab = "form";
+
+/* ---------- Util ---------- */
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rupiah = n => "Rp " + (Number(n)||0).toLocaleString("id-ID");
+const digits = v => String(v ?? "").replace(/\D/g,"");
+function tgl(iso){ if(!iso) return ""; const [y,m,d] = iso.split("-"); return `${d}/${m}/${y}`; }
+function tglPanjang(iso){ if(!iso) return ""; const d = new Date(iso+"T00:00:00"); return d.toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}); }
+function getPath(o,p){ return p.split(".").reduce((a,k)=>a==null?a:a[k], o); }
+function setPath(o,p,v){ const ks=p.split("."); let a=o; ks.slice(0,-1).forEach(k=>{ if(a[k]==null) a[k]={}; a=a[k]; }); a[ks.at(-1)]=v; }
+function toast(msg){ const t=document.createElement("div"); t.className="toast"; t.setAttribute("role","status"); t.textContent=msg; document.body.append(t); setTimeout(()=>t.remove(),2200); }
+function targetLevel(){ const j=(JENJANG[S.jalur]||[]).find(x=>x[0]===S.jenjang); return j?String(j[1]):""; }
+function masaKerja(){ if(S.mkTahun==="" && S.mkBulan==="") return ""; return `${Number(S.mkTahun)||0} Tahun ${Number(S.mkBulan)||0} Bulan`; }
+function hitungMK(){
+  if(!S.tmt) return;
+  const a=new Date(S.tmt+"T00:00:00"), b=new Date();
+  let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth()); if(b.getDate()<a.getDate()) m--;
+  if(m<0) m=0; S.mkTahun=String(Math.floor(m/12)); S.mkBulan=String(m%12);
+}
+function teknisList(){ return S.teknis.filter(t=>t.nama.trim()); }
+function presetFor(){ const s=`${S.harapan} ${S.jabatanNow}`; return TEKNIS_PRESET.find(p=>p.re.test(s)); }
+
+/* ---------- Validasi ---------- */
+function validate(){
+  const v = [[],[],[],[],[]]; // per langkah: {lvl:'bad'|'warn', msg}
+  const bad=(i,m)=>v[i].push({lvl:"bad",msg:m}), warn=(i,m)=>v[i].push({lvl:"warn",msg:m});
+  if(!S.nama.trim()) bad(0,"Nama lengkap belum diisi");
+  if(digits(S.nip).length!==18) bad(0,"NIP harus 18 digit");
+  if(!S.pendidikan) bad(0,"Pendidikan terakhir belum dipilih");
+  if(S.mkTahun===""||S.mkBulan==="") bad(0,"Masa kerja belum lengkap");
+  else if(Number(S.mkBulan)>11) bad(0,"Bulan masa kerja maksimal 11");
+  if(!S.opd.trim()) warn(0,"Perangkat daerah belum diisi (untuk dokumen)");
+  if(!S.jabatanNow.trim()) warn(0,"Jabatan saat ini belum diisi (untuk dokumen)");
+
+  if(!S.jalur) bad(1,"Pilih rencana karier: Manajerial atau Fungsional");
+  if(!S.jenjang) bad(1,"Jenjang jabatan target belum dipilih");
+  if(!S.rumpun) bad(1,"Rumpun jabatan belum dipilih");
+  if(!S.harapan.trim()) bad(1,"Nama jabatan harapan belum diisi");
+
+  const tl = targetLevel();
+  const tk = teknisList();
+  if(!tk.length) bad(2,"Isi minimal satu kompetensi teknis");
+  tk.forEach(t=>{ if(!t.level) bad(2,`Target level "${t.nama}" belum dipilih`); else if(t.now && Number(t.now)>=Number(t.level)) warn(2,`"${t.nama}": level saat ini sudah sama/lebih tinggi dari target`); });
+  const kosong = MANAJERIAL.filter(m=>!S.manajerial[m[0]]).length;
+  if(kosong) bad(2,`${kosong} kompetensi manajerial belum diberi level`);
+  if(!S.sosial) bad(2,"Level Perekat Bangsa belum dipilih");
+  if(tl){
+    const beda = MANAJERIAL.filter(m=>S.manajerial[m[0]] && S.manajerial[m[0]]!==tl).length + (S.sosial && S.sosial!==tl ? 1:0);
+    if(beda) warn(2,`${beda} level manajerial/sosial kultural berbeda dari standar jenjang ${S.jenjang} (Level ${tl})`);
+  }
+
+  if(!S.programs.length) bad(3,"Tambahkan minimal satu program pengembangan");
+  S.programs.forEach((p,i)=>{
+    const n=`Program ${i+1}`;
+    if(!p.kompetensi.trim()) bad(3,`${n}: kompetensi yang dikembangkan belum diisi`);
+    if(!p.indikator.trim()) warn(3,`${n}: unsur/level/indikator belum diisi`);
+    if(!p.metode) bad(3,`${n}: jenis/metode belum dipilih`);
+    if(!p.aktivitas.trim()) bad(3,`${n}: aktivitas pengembangan belum diisi`);
+    if(!p.mulai||!p.selesai) bad(3,`${n}: tanggal mulai/selesai belum lengkap`);
+    else if(p.selesai<p.mulai) bad(3,`${n}: tanggal selesai lebih awal dari tanggal mulai`);
+    else if(!p.mulai.startsWith(S.periode)||!p.selesai.startsWith(S.periode)) warn(3,`${n}: di luar periode IDP ${S.periode}`);
+    if(p.biaya==="") bad(3,`${n}: estimasi biaya belum diisi (isi 0 bila tanpa biaya)`);
+  });
+  if(S.programs.length){
+    const ks = S.programs.map(p=>METODE_K[p.metode]).filter(Boolean);
+    if(ks.length && ks.every(k=>k==="10")) warn(3,"Semua program berupa pelatihan/pendidikan. IDP bukan daftar usulan pelatihan: tambahkan coaching, mentoring, atau penugasan.");
+    const covered = new Set(S.programs.map(p=>p.kompetensi.trim().toLowerCase()));
+    tk.forEach(t=>{ if(!covered.has(t.nama.trim().toLowerCase())) warn(3,`Kompetensi "${t.nama}" belum punya program`); });
+  }
+
+  if(!S.setuju) bad(4,"Pernyataan pengesahan belum disetujui");
+  if(!S.atasanNama.trim()) warn(4,"Nama atasan langsung belum diisi (untuk tanda tangan)");
+  return v;
+}
+
+/* ---------- Langkah ---------- */
+const STEPS = [
+  {r:"I", t:"Identitas", s:"Data kepegawaian"},
+  {r:"II", t:"Rencana Karier", s:"Jabatan target 1 tahun"},
+  {r:"III", t:"Kekuatan & Area Pengembangan", s:"SKJ dan SKP"},
+  {r:"IV", t:"Program Pengembangan", s:"SKJ, HCDP, SKP"},
+  {r:"V", t:"Pengesahan", s:"Pernyataan & tanda tangan"},
+  {r:"✓", t:"Hasil", s:"Salin ke formulir, unduh"}
+];
+
+function renderSteps(v){
+  $("#steps").innerHTML = STEPS.map((st,i)=>{
+    const done = i<5 ? !v[i].some(x=>x.lvl==="bad") : v.every(a=>!a.some(x=>x.lvl==="bad"));
+    return `<button class="step ${i===step?"active":""} ${done?"done":""}" data-step="${i}" ${i===step?'aria-current="step"':""}>
+      <span class="num">${done && i!==step && i<5 ? "✓" : st.r}</span><span class="lbl">${esc(st.t)}<small>${esc(st.s)}</small></span></button>`;
+  }).join("");
+}
+
+function field(label, path, opts={}){
+  const val = getPath(S,path) ?? "";
+  const id = "f_"+path.replace(/\./g,"_");
+  const req = opts.req ? '<span class="req" aria-hidden="true">*</span>' : "";
+  let ctl;
+  if(opts.options){
+    ctl = `<select id="${id}" data-path="${path}" ${opts.rerender?'data-rerender="1"':""}><option value="">— pilih —</option>${opts.options.map(o=>{const [v,l]=Array.isArray(o)?o:[o,o];return `<option value="${esc(v)}" ${String(v)===String(val)?"selected":""}>${esc(l)}</option>`}).join("")}</select>`;
+  } else if(opts.area){
+    ctl = `<textarea id="${id}" data-path="${path}" placeholder="${esc(opts.ph||"")}">${esc(val)}</textarea>`;
+  } else {
+    ctl = `<input id="${id}" data-path="${path}" type="${opts.type||"text"}" value="${esc(val)}" placeholder="${esc(opts.ph||"")}" ${opts.list?`list="${opts.list}"`:""} ${opts.mono?'class="mono"':""} ${opts.inputmode?`inputmode="${opts.inputmode}"`:""} ${opts.rerender?'data-rerender="1"':""}>`;
+  }
+  return `<div class="f ${opts.full?"full":""}"><label for="${id}">${esc(label)}${req}</label>${ctl}${opts.hint?`<span class="hint">${opts.hint}</span>`:""}</div>`;
+}
+
+function stepIdentitas(){
+  return `<div class="sec-head"><span class="roman">I</span><h2>Identitas Pegawai Negeri Sipil</h2></div>
+  <p class="lede">Data harus sama dengan data administrasi kepegawaian yang berlaku (SIASN/SIMPEG).</p>
+  <div class="fields">
+    ${field("Nama lengkap","nama",{req:1,full:1,hint:"Tulis lengkap dengan gelar sesuai SK terakhir."})}
+    ${field("NIP","nip",{req:1,mono:1,inputmode:"numeric",ph:"18 digit tanpa spasi",hint:`<span id="nipInfo">${nipInfo()}</span>`})}
+    ${field("Pangkat/golongan","pangkat",{ph:"mis. Penata Muda Tk. I (III/b)"})}
+    ${field("Pendidikan terakhir","pendidikan",{req:1,options:PENDIDIKAN,hint:"Pendidikan formal terakhir yang sudah diakui dalam administrasi kepegawaian."})}
+    ${field("Program studi/jurusan","jurusan",{ph:"mis. Akuntansi"})}
+    <div class="f"><label for="f_mkTahun">Masa kerja<span class="req">*</span></label>
+      <div class="inline"><input id="f_mkTahun" data-path="mkTahun" class="mono" inputmode="numeric" value="${esc(S.mkTahun)}" aria-label="Tahun"> Tahun
+      <input id="f_mkBulan" data-path="mkBulan" class="mono" inputmode="numeric" value="${esc(S.mkBulan)}" aria-label="Bulan"> Bulan</div>
+      <span class="hint">Sampai saat penyusunan IDP. Contoh: 5 Tahun 11 Bulan.</span></div>
+    <div class="f"><label for="f_tmt">TMT CPNS (opsional)</label><input id="f_tmt" type="date" data-path="tmt" data-rerender="1" value="${esc(S.tmt)}"><span class="hint">Isi untuk menghitung masa kerja otomatis sampai hari ini.</span></div>
+    ${field("Perangkat daerah","opd",{full:1,list:"dlOpd",ph:"mis. Inspektorat Daerah Kabupaten Donggala"})}
+    ${field("Jabatan saat ini","jabatanNow",{ph:"mis. Auditor Ahli Pertama",rerender:0})}
+    ${field("Periode IDP (tahun)","periode",{mono:1,inputmode:"numeric"})}
+  </div>
+  <datalist id="dlOpd">${["Sekretariat Daerah Kabupaten Donggala","Sekretariat DPRD Kabupaten Donggala","Inspektorat Daerah Kabupaten Donggala","Badan Perencanaan Pembangunan Daerah Kabupaten Donggala","Badan Kepegawaian dan Pengembangan Sumber Daya Manusia Kabupaten Donggala","Badan Pengelolaan Keuangan dan Aset Daerah Kabupaten Donggala","Dinas Pendidikan dan Kebudayaan Kabupaten Donggala","Dinas Kesehatan Kabupaten Donggala"].map(o=>`<option value="${esc(o)}">`).join("")}</datalist>`;
+}
+function nipInfo(){
+  const d = digits(S.nip);
+  if(!d) return "Format: tanggal lahir (8) · TMT CPNS (6) · jenis kelamin (1) · nomor urut (3).";
+  if(d.length!==18) return `${d.length}/18 digit`;
+  return `Lahir ${d.slice(6,8)}/${d.slice(4,6)}/${d.slice(0,4)} · TMT CPNS ${d.slice(12,14)}/${d.slice(8,12)}`;
+}
+
+function stepKarier(){
+  const opts = JENJANG[S.jalur]||[];
+  return `<div class="sec-head"><span class="roman">II</span><h2>Rencana Karier</h2></div>
+  <p class="lede">Tetapkan jabatan atau jenjang yang dipersiapkan dalam satu tahun. Pilihan ini menentukan target level kompetensi di Bagian III.</p>
+  <div class="f full"><label>II.a Rencana karier<span class="req">*</span></label>
+    <div class="seg">${["Fungsional","Manajerial"].map(j=>`<button type="button" data-jalur="${j}" aria-pressed="${S.jalur===j}">${j}<small>${j==="Fungsional"?"Jenjang Ahli Pertama sampai Ahli Utama":"Pengawas, Administrator, JPT Pratama"}</small></button>`).join("")}</div></div>
+  <div class="fields" style="margin-top:16px">
+    ${S.jalur?field(`II.b Jenjang jabatan ${S.jalur.toLowerCase()} yang dituju`,"jenjang",{req:1,options:opts.map(o=>[o[0],`${o[0]} (Level ${o[1]})`]),rerender:1}):""}
+    ${field("II.c Rumpun jabatan","rumpun",{req:1,options:RUMPUN})}
+    ${field("Harapan: nama jabatan target","harapan",{req:1,full:1,ph:"mis. Auditor Ahli Muda, Kepala Bidang Anggaran, Perencana Ahli Muda",hint:"Nama jabatan yang menjadi target pengembangan dalam periode IDP."})}
+  </div>
+  ${S.jenjang?`<div class="callout"><b>Target level: ${targetLevel()} (${LEVEL_NAMA[targetLevel()]})</b>. Sesuai panduan, kompetensi manajerial dan Perekat Bangsa untuk jenjang ${esc(S.jenjang)} ditetapkan di Level ${targetLevel()}. Aplikasi akan mengisinya otomatis di Bagian III.</div>`:""}
+  <div class="callout kunyit">Di Google Form, pilihan II.b muncul menurut jalur yang dipilih di II.a. Isi hanya jenjang yang sesuai jalur karier Anda.</div>`;
+}
+
+function lvButtons(path, val, target){
+  return `<div class="lv" role="group">${[1,2,3,4,5].map(n=>`<button type="button" data-lv="${path}" data-val="${n}" aria-pressed="${String(val)===String(n)}" class="${String(target)===String(n)?"target":""}" title="Level ${n}: ${LEVEL_NAMA[n]}">${n}</button>`).join("")}</div>`;
+}
+function stepKompetensi(){
+  const tl = targetLevel(); const p = presetFor();
+  const used = new Set(S.teknis.map(t=>t.nama.trim()));
+  return `<div class="sec-head"><span class="roman">III</span><h2>Kekuatan dan Area Pengembangan</h2></div>
+  <p class="lede">Kompetensi ditetapkan dari dokumen resmi (SKJ, SKP bagian ekspektasi pimpinan, dan peraturan jabatan), bukan dari persepsi pribadi. Level yang diisi adalah level <b>jabatan target</b>.</p>
+
+  <h3 style="font-family:var(--f-display);margin:0 0 8px">Kompetensi teknis</h3>
+  <div class="rows">
+    <div class="trow"><span class="h">Nama kompetensi (Kamus Kompetensi Teknis)</span><span class="h now">Level saat ini</span><span class="h">Target</span><span></span></div>
+    ${S.teknis.map((t,i)=>`<div class="trow">
+      <input aria-label="Nama kompetensi teknis ${i+1}" id="tk_${i}" data-path="teknis.${i}.nama" value="${esc(t.nama)}" placeholder="mis. Audit Kinerja">
+      <select class="now" aria-label="Level saat ini" data-path="teknis.${i}.now"><option value="">—</option>${[1,2,3,4,5].map(n=>`<option ${String(t.now)===String(n)?"selected":""}>${n}</option>`).join("")}</select>
+      <select aria-label="Target level" data-path="teknis.${i}.level"><option value="">—</option>${[1,2,3,4,5].map(n=>`<option ${String(t.level)===String(n)?"selected":""}>${n}</option>`).join("")}</select>
+      <button type="button" class="small ghost danger" data-deltk="${i}" aria-label="Hapus baris">✕</button></div>`).join("")}
+  </div>
+  <div class="inline" style="margin-top:10px"><button type="button" class="small" id="addTk">+ Tambah kompetensi teknis</button></div>
+  ${p?`<div class="callout"><b>Contoh untuk ${esc(p.label)}</b> (cocokkan dengan kamus instansi pembina): <div class="inline" style="margin-top:8px">${p.items.filter(x=>!used.has(x)).map(x=>`<button type="button" class="small" data-addpreset="${esc(x)}">+ ${esc(x)}</button>`).join("")||"<span class='hint'>Semua contoh sudah ditambahkan.</span>"}</div></div>`:""}
+  <div class="ai" id="aiTk" hidden><h4>Minta saran Claude</h4><p>Claude mengusulkan kompetensi teknis untuk jabatan target. Tetap cocokkan dengan kamus resmi. Memakai kuota Claude akun Anda.</p>
+    <button type="button" class="small primary" id="btnAiTk">Sarankan kompetensi teknis</button><div class="sugg" id="aiTkOut"></div></div>
+
+  <h3 style="font-family:var(--f-display);margin:26px 0 4px">Kompetensi manajerial</h3>
+  <div class="inline" style="justify-content:space-between"><span class="hint">Garis kuning = standar jenjang target${tl?` (Level ${tl})`:""}.</span>${tl?`<button type="button" class="small" id="autoLv">Isi semua dengan Level ${tl}</button>`:""}</div>
+  <div class="tbl-wrap"><table><thead><tr><th>Kompetensi</th><th>Level</th></tr></thead><tbody>
+    ${MANAJERIAL.map(([n,d])=>`<tr><td><b>${esc(n)}</b><span class="desc">${esc(d)}</span></td><td>${lvButtons("manajerial."+n, S.manajerial[n], tl)}</td></tr>`).join("")}
+  </tbody></table></div>
+
+  <h3 style="font-family:var(--f-display);margin:26px 0 4px">Kompetensi sosial kultural</h3>
+  <div class="tbl-wrap"><table><tbody><tr><td><b>Perekat Bangsa</b><span class="desc">${esc(SOSIAL_DESC)}</span></td><td>${lvButtons("sosial", S.sosial, tl)}</td></tr></tbody></table></div>`;
+}
+
+function metodeSelect(i,val){
+  return `<select id="pm_${i}" data-path="programs.${i}.metode" data-rerender="1"><option value="">— pilih jalur —</option>${METODE.map(g=>`<optgroup label="${esc(g.g)}">${g.items.map(it=>`<option ${it===val?"selected":""}>${esc(it)}</option>`).join("")}</optgroup>`).join("")}</select>`;
+}
+const KLAB = {"10":"Pelatihan/pendidikan","20":"Belajar dari orang lain","70":"Pengalaman kerja"};
+function stepProgram(){
+  const komp = [...teknisList().map(t=>t.nama), ...MANAJERIAL.map(m=>m[0]), "Perekat Bangsa"];
+  const tot = S.programs.reduce((a,p)=>a+(Number(digits(p.biaya))||0),0);
+  return `<div class="sec-head"><span class="roman">IV</span><h2>Rencana Program Pengembangan</h2></div>
+  <p class="lede">Setiap program menindaklanjuti kompetensi di Bagian III. Kompetensi manajerial dan sosial kultural mengacu pada ekspektasi pimpinan di SKP; kompetensi teknis dapat mengacu pada SKJ, HCDP, atau SKP. Diklat yang menjadi syarat jabatan ditetapkan dari SKJ/HCDP.</p>
+  <div class="rows">
+  ${S.programs.map((p,i)=>{ const k=METODE_K[p.metode]; return `<div class="prog">
+    <div class="prog-head"><b>Program ${i+1}</b><span class="inline">${k?`<span class="chip k${k}">${KLAB[k]}</span>`:""}<button type="button" class="small ghost danger" data-delpg="${i}">Hapus</button></span></div>
+    <div class="fields">
+      <div class="f"><label for="pk_${i}">Kompetensi yang dikembangkan<span class="req">*</span></label><input id="pk_${i}" list="dlKomp" data-path="programs.${i}.kompetensi" value="${esc(p.kompetensi)}"></div>
+      <div class="f"><label for="ps_${i}">Sumber kebutuhan</label><select id="ps_${i}" data-path="programs.${i}.sumber">${["SKJ","HCDP","SKP"].map(s=>`<option ${s===p.sumber?"selected":""}>${s}</option>`).join("")}</select></div>
+      <div class="f full"><label for="pi_${i}">Unsur, level, dan indikator kompetensi</label><input id="pi_${i}" data-path="programs.${i}.indikator" value="${esc(p.indikator)}" placeholder="mis. Level 3: mampu menyusun program kerja audit kinerja"></div>
+      <div class="f"><label for="pm_${i}">Jenis/metode pengembangan<span class="req">*</span></label>${metodeSelect(i,p.metode)}</div>
+      <div class="f"><label for="pa_${i}">Aktivitas pengembangan<span class="req">*</span></label><input id="pa_${i}" list="dlHcdp" data-path="programs.${i}.aktivitas" value="${esc(p.aktivitas)}" placeholder="Nama pelatihan atau uraian kegiatan"></div>
+      <div class="f"><label for="pmu_${i}">Waktu mulai<span class="req">*</span></label><input id="pmu_${i}" type="date" data-path="programs.${i}.mulai" value="${esc(p.mulai)}"></div>
+      <div class="f"><label for="pse_${i}">Waktu selesai<span class="req">*</span></label><input id="pse_${i}" type="date" data-path="programs.${i}.selesai" value="${esc(p.selesai)}"></div>
+      <div class="f"><label for="pb_${i}">Estimasi biaya (Rp)<span class="req">*</span></label><input id="pb_${i}" class="mono" inputmode="numeric" data-path="programs.${i}.biaya" value="${esc(p.biaya)}" placeholder="0 bila tanpa biaya"><span class="hint" data-biaya="${i}">${p.biaya!==""?rupiah(digits(p.biaya)):""}</span></div>
+    </div></div>`; }).join("")}
+  </div>
+  ${!S.programs.length?`<div class="callout">Belum ada program. Mulai dari kompetensi teknis dengan gap terbesar, lalu tambahkan pengembangan di tempat kerja (coaching, mentoring, penugasan).</div>`:""}
+  <div class="inline" style="margin-top:12px;justify-content:space-between"><button type="button" id="addPg">+ Tambah program</button><span>Total estimasi: <b class="mono" id="totBiaya">${rupiah(tot)}</b></span></div>
+  <div class="ai" id="aiPg" hidden><h4>Minta draf program dari Claude</h4><p>Claude menyusun usulan program dari kompetensi di Bagian III dengan campuran pelatihan, belajar dari orang lain, dan penugasan. Periksa lagi biaya dan jadwalnya.</p>
+    <button type="button" class="small primary" id="btnAiPg">Susun usulan program</button><div class="sugg" id="aiPgOut"></div></div>
+  <datalist id="dlKomp">${komp.map(k=>`<option value="${esc(k)}">`).join("")}</datalist>
+  <datalist id="dlHcdp">${HCDP_REF.map(k=>`<option value="${esc(k)}">`).join("")}</datalist>`;
+}
+
+function stepSah(){
+  return `<div class="sec-head"><span class="roman">V</span><h2>Pengesahan</h2></div>
+  <p class="lede">Pernyataan ini wajib di formulir. Data atasan langsung dipakai untuk lembar tanda tangan di dokumen IDP.</p>
+  <label class="callout" style="display:flex;gap:12px;align-items:flex-start;cursor:pointer">
+    <input type="checkbox" id="f_setuju" data-path="setuju" ${S.setuju?"checked":""} style="width:20px;height:20px;margin-top:2px;flex:none">
+    <span><b>Setuju.</b> Seluruh isian dalam formulir telah disusun secara objektif, realistis, terukur, serta dapat dipertanggungjawabkan berdasarkan dokumen yang menjadi dasar penyusunan Individual Development Plan.</span></label>
+  <div class="fields">
+    ${field("Nama atasan langsung","atasanNama",{full:1})}
+    ${field("NIP atasan langsung","atasanNip",{mono:1,inputmode:"numeric"})}
+    ${field("Jabatan atasan langsung","atasanJabatan",{})}
+    ${field("Tempat penandatanganan","tempat",{})}
+    ${field("Tanggal penandatanganan","tanggal",{type:"date"})}
+  </div>`;
+}
+
+/* ---------- Hasil: salin ke formulir & dokumen ---------- */
+function formAnswers(){
+  const tk = teknisList();
+  const pg = S.programs;
+  const n = (i)=> pg.length>1 ? `${i+1}) ` : "";
+  const starts = pg.map(p=>p.mulai).filter(Boolean).sort(), ends = pg.map(p=>p.selesai).filter(Boolean).sort();
+  const tot = pg.reduce((a,p)=>a+(Number(digits(p.biaya))||0),0);
+  const rows = [
+    ["I. Identitas"],
+    ["Nama Lengkap", S.nama],
+    ["NIP", digits(S.nip)],
+    ["Pendidikan", [S.pendidikan, S.jurusan].filter(Boolean).join(" ")],
+    ["Masa Kerja", masaKerja()],
+    ["II. Rencana Karier"],
+    ["II.a Rencana Karier", S.jalur, "Pilihan dropdown"],
+    [S.jalur==="Manajerial"?"II.b Jenjang Jabatan Manajerial":"II.b Jenjang Jabatan Fungsional", S.jenjang, "Pilihan dropdown"],
+    ["II.c Rumpun Jabatan", S.rumpun, "Pilihan dropdown"],
+    ["Harapan", S.harapan],
+    ["III. Kekuatan dan Area Pengembangan"],
+    ["Kompetensi Teknis", tk.map(t=>`${t.nama} (Level ${t.level||"?"})`).join("; "), "Pisahkan dengan titik koma"],
+    ...MANAJERIAL.map(m=>[`Manajerial: ${m[0]}`, S.manajerial[m[0]]?`Level ${S.manajerial[m[0]]}`:"", "Pilih di tabel"]),
+    ["Sosial Kultural: Perekat Bangsa", S.sosial?`Level ${S.sosial}`:"", "Pilih di tabel"],
+    ["IV. Rencana Program Pengembangan"],
+    ["Jenis, Unsur, Level, dan Indikator Kompetensi", pg.map((p,i)=>`${n(i)}${p.kompetensi}${p.indikator?` – ${p.indikator}`:""} [${p.sumber}]`).join("; ")],
+    ["Jenis, Metode, dan Aktivitas Pengembangan", pg.map((p,i)=>`${n(i)}${p.metode}: ${p.aktivitas} (${tgl(p.mulai)}–${tgl(p.selesai)})`).join("; ")],
+    ["Waktu Mulai Pelaksanaan", tgl(starts[0]), pg.length>1?"Tanggal paling awal dari semua program":""],
+    ["Waktu Selesai Pelaksanaan", tgl(ends.at(-1)), pg.length>1?"Tanggal paling akhir dari semua program":""],
+    ["Estimasi Biaya (Rp.)", pg.length?tot.toLocaleString("id-ID"):"", pg.length>1?"Total semua program":""],
+    ["V. Pengesahan"],
+    ["Pernyataan", S.setuju?"Setuju":"", "Centang"]
+  ];
+  return rows;
+}
+
+function docHTML(){
+  const tk = teknisList(), tl = targetLevel();
+  const td = 'style="border:1px solid #333;padding:5px 7px;vertical-align:top"';
+  const th = 'style="border:1px solid #333;padding:5px 7px;background:#e9eef0;text-align:left"';
+  const tbl = 'style="border-collapse:collapse;width:100%;margin:6px 0 14px"';
+  const tot = S.programs.reduce((a,p)=>a+(Number(digits(p.biaya))||0),0);
+  const row = (k,v)=>`<tr><td ${td} width="34%">${esc(k)}</td><td ${td}>${esc(v)||"&nbsp;"}</td></tr>`;
+  return `<div style="font-family:'Times New Roman',Tinos,serif;color:#111;font-size:14px;line-height:1.45">
+  <div style="text-align:center;margin-bottom:14px"><div style="font-size:16px;font-weight:bold">RENCANA PENGEMBANGAN INDIVIDU</div>
+  <div style="font-weight:bold">(INDIVIDUAL DEVELOPMENT PLAN) TAHUN ${esc(S.periode)}</div>
+  <div>${esc(S.opd||"Perangkat Daerah")}${/donggala/i.test(S.opd)?"":", Kabupaten Donggala"}</div></div>
+  <b>I. IDENTITAS PEGAWAI NEGERI SIPIL</b>
+  <table ${tbl}>${row("Nama Lengkap",S.nama)}${row("NIP",digits(S.nip))}${row("Pangkat/Golongan",S.pangkat)}${row("Jabatan Saat Ini",S.jabatanNow)}${row("Pendidikan",[S.pendidikan,S.jurusan].filter(Boolean).join(" "))}${row("Masa Kerja",masaKerja())}</table>
+  <b>II. RENCANA KARIER</b>
+  <table ${tbl}>${row("Rencana Karier",S.jalur)}${row("Jenjang Jabatan",S.jenjang)}${row("Rumpun Jabatan",S.rumpun)}${row("Harapan (Jabatan Target)",S.harapan)}${row("Target Level Kompetensi",tl?`Level ${tl} – ${LEVEL_NAMA[tl]}`:"")}</table>
+  <b>III. KEKUATAN DAN AREA PENGEMBANGAN</b>
+  <table ${tbl}><tr><th ${th}>No</th><th ${th}>Kompetensi</th><th ${th}>Jenis</th><th ${th}>Level Saat Ini</th><th ${th}>Target Level</th></tr>
+  ${[...tk.map(t=>[t.nama,"Teknis",t.now,t.level]),...MANAJERIAL.map(m=>[m[0],"Manajerial","",S.manajerial[m[0]]]),["Perekat Bangsa","Sosial Kultural","",S.sosial]].map((r,i)=>`<tr><td ${td}>${i+1}</td><td ${td}>${esc(r[0])}</td><td ${td}>${r[1]}</td><td ${td} align="center">${esc(r[2])||"–"}</td><td ${td} align="center">${esc(r[3])||"–"}</td></tr>`).join("")}</table>
+  <b>IV. RENCANA PROGRAM PENGEMBANGAN</b>
+  <table ${tbl}><tr><th ${th}>No</th><th ${th}>Kompetensi, Unsur, Level, Indikator</th><th ${th}>Sumber</th><th ${th}>Jenis/Metode dan Aktivitas</th><th ${th}>Waktu</th><th ${th}>Estimasi Biaya</th></tr>
+  ${S.programs.map((p,i)=>`<tr><td ${td}>${i+1}</td><td ${td}><b>${esc(p.kompetensi)}</b><br>${esc(p.indikator)}</td><td ${td}>${esc(p.sumber)}</td><td ${td}>${esc(p.metode)}:<br>${esc(p.aktivitas)}</td><td ${td}>${tgl(p.mulai)} s.d.<br>${tgl(p.selesai)}</td><td ${td} align="right">${rupiah(digits(p.biaya))}</td></tr>`).join("")}
+  <tr><td ${td} colspan="5" align="right"><b>Total</b></td><td ${td} align="right"><b>${rupiah(tot)}</b></td></tr></table>
+  <b>V. PENGESAHAN</b>
+  <p style="margin:6px 0 18px">${S.setuju?"☑":"☐"} Seluruh isian dalam formulir ini telah disusun secara objektif, realistis, terukur, serta dapat dipertanggungjawabkan berdasarkan dokumen yang menjadi dasar penyusunan Individual Development Plan.</p>
+  <table style="width:100%;border-collapse:collapse"><tr>
+    <td style="width:50%;text-align:center;vertical-align:top;padding:4px">Menyetujui,<br>Atasan Langsung<br>${esc(S.atasanJabatan)}<br><br><br><br><u><b>${esc(S.atasanNama)||"(.................................)"}</b></u><br>NIP ${esc(digits(S.atasanNip))}</td>
+    <td style="width:50%;text-align:center;vertical-align:top;padding:4px">${esc(S.tempat)}, ${S.tanggal?tglPanjang(S.tanggal):"..................."}<br>Pegawai yang bersangkutan<br>&nbsp;<br><br><br><br><u><b>${esc(S.nama)||"(.................................)"}</b></u><br>NIP ${esc(digits(S.nip))}</td>
+  </tr></table></div>`;
+}
+
+function stepHasil(v){
+  const bad = v.flat().filter(x=>x.lvl==="bad").length;
+  const head = `<div class="sec-head"><span class="roman">✓</span><h2>Hasil penyusunan</h2></div>
+  <p class="lede">${bad?`Masih ada <b>${bad} isian wajib</b> yang kosong atau salah (lihat panel kelengkapan). Anda tetap bisa melihat hasil sementara.`:"Semua isian wajib lengkap. Salin jawaban ke Google Form satu per satu, atau unduh dokumen IDP untuk ditandatangani."}</p>
+  <div class="tabs" role="group" aria-label="Tampilan hasil">
+    <button type="button" data-tab="form" aria-pressed="${hasilTab==="form"}">Jawaban untuk Google Form</button>
+    <button type="button" data-tab="doc" aria-pressed="${hasilTab==="doc"}">Dokumen IDP</button></div>`;
+  if(hasilTab==="doc"){
+    return head + `<div class="inline" style="margin-bottom:12px"><button type="button" class="primary" id="dlDoc">Unduh dokumen (.html)</button><span class="hint">Buka file dengan Microsoft Word atau peramban, lalu cetak/simpan sebagai PDF.</span></div><div class="doc">${docHTML()}</div>`;
+  }
+  const rows = formAnswers();
+  return head + `<div class="inline" style="margin-bottom:12px"><button type="button" class="primary" id="copyAll">Salin semua jawaban</button>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeYao6PBsLuMnYmdfr-GfOxsDJBzeimeVpVTwHpeLoLxpYPeg/viewform" target="_blank" rel="noopener">Buka formulir IDP ↗</a></div>
+  <div class="copy-list">${rows.map((r,i)=> r.length===1 ? `<div class="copy-group">${esc(r[0])}</div>` :
+    `<div class="copy-row"><div class="q">${esc(r[0])}${r[2]?`<small>${esc(r[2])}</small>`:""}</div><div class="a ${r[1]?"":"empty"}">${r[1]?esc(r[1]):"belum diisi"}</div><button type="button" class="small" data-copy="${i}" ${r[1]?"":"disabled"}>Salin</button></div>`).join("")}</div>
+  <div class="callout">Google Form hanya menyediakan satu isian untuk Bagian IV. Jika program lebih dari satu, aplikasi menggabungkannya dengan nomor dan titik koma, memakai tanggal mulai paling awal, tanggal selesai paling akhir, dan total biaya.</div>`;
+}
+
+/* ---------- Panel kanan ---------- */
+function renderPanel(v){
+  const reqTotal = 22; // perkiraan isian wajib
+  const bad = v.flat().filter(x=>x.lvl==="bad");
+  const warns = v.flat().filter(x=>x.lvl==="warn");
+  const pct = Math.max(0, Math.round(100*(1 - Math.min(bad.length, reqTotal)/reqTotal)));
+  const mix = {"10":0,"20":0,"70":0}; S.programs.forEach(p=>{ const k=METODE_K[p.metode]; if(k) mix[k]++; });
+  const tot = mix["10"]+mix["20"]+mix["70"];
+  const list = [...bad.map(x=>({...x})), ...warns].slice(0,9);
+  $("#panel").innerHTML = `
+  <div class="card"><h3>Kelengkapan</h3><div class="big mono">${bad.length?pct+"%":"100%"}</div>
+    <div class="meter" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${bad.length?pct:100}%"></i></div>
+    <div class="hint">${bad.length?`${bad.length} isian wajib perlu dibereskan`:"Semua isian wajib terpenuhi"}${warns.length?` · ${warns.length} saran perbaikan`:""}</div>
+    ${list.length?`<ul class="checks" style="margin-top:12px">${list.map(x=>`<li><span class="dot ${x.lvl}"></span><span>${esc(x.msg)}</span></li>`).join("")}</ul>`:""}
+    ${bad.length+warns.length>9?`<div class="hint" style="margin-top:6px">dan ${bad.length+warns.length-9} lainnya</div>`:""}
+  </div>
+  <div class="card"><h3>Ringkasan rencana</h3>
+    <div style="font-size:.9rem">${S.harapan?`Target: <b>${esc(S.harapan)}</b>`:"Jabatan target belum diisi"}${targetLevel()?` · Level ${targetLevel()}`:""}</div>
+    <div style="font-size:.9rem;margin-top:4px">${teknisList().length} kompetensi teknis · ${S.programs.length} program · <span class="mono">${rupiah(S.programs.reduce((a,p)=>a+(Number(digits(p.biaya))||0),0))}</span></div>
+    <div class="mix" aria-label="Komposisi metode">${tot?["70","20","10"].map(k=>`<span style="width:${100*mix[k]/tot}%;background:var(${k==="70"?"--ok":k==="20"?"--kunyit":"--accent"})"></span>`).join(""):""}</div>
+    <div class="legend"><span><i style="background:var(--ok)"></i>Pengalaman kerja ${mix["70"]}</span><span><i style="background:var(--kunyit)"></i>Dari orang lain ${mix["20"]}</span><span><i style="background:var(--accent)"></i>Pelatihan ${mix["10"]}</span></div>
+    <div class="hint" style="margin-top:6px">Pola 70-20-10: sebagian besar pengembangan terjadi lewat pengalaman kerja dan bimbingan, bukan hanya pelatihan.</div>
+  </div>
+  <div class="card"><h3>File draf</h3><div class="inline"><button type="button" class="small" id="dlJson">Simpan draf (.json)</button><button type="button" class="small" id="openJson">Buka draf</button></div>
+    <div class="hint" style="margin-top:6px">Untuk cadangan, berpindah perangkat, atau diperiksa atasan.</div></div>`;
+}
+
+function renderDrafts(){
+  const ids = Object.keys(store.drafts).sort((a,b)=>store.drafts[b].updated-store.drafts[a].updated);
+  $("#draftSel").innerHTML = ids.map(id=>{ const s=store.drafts[id].state; const n=(s.nama||"Tanpa nama")+(s.contoh?" (contoh)":""); return `<option value="${id}" ${id===store.active?"selected":""}>${esc(n)}</option>`; }).join("");
+  $("#delWrap").innerHTML = `<button class="small ghost danger" id="btnDel">Hapus draf</button>`;
+}
+function renderBanner(){
+  $("#banner").innerHTML = S.contoh ? `<div class="banner"><span><b>Ini contoh isian</b> untuk Auditor yang menyiapkan jenjang Ahli Muda. Data pegawai di dalamnya fiktif.</span><span class="inline"><button class="small" id="useEx">Ubah contoh ini jadi draf saya</button><button class="small primary" id="startBlank">Mulai dari formulir kosong</button></span></div>` : "";
+}
+
+/* ---------- Render utama ---------- */
+function render(focusId){
+  const v = validate();
+  renderDrafts(); renderBanner(); renderSteps(v); renderPanel(v);
+  const body = [stepIdentitas,stepKarier,stepKompetensi,stepProgram,stepSah,()=>stepHasil(v)][step]();
+  $("#sheet").innerHTML = body + `<div class="nav-btns">
+    ${step>0?`<button type="button" data-go="${step-1}">← ${esc(STEPS[step-1].t)}</button>`:"<span></span>"}
+    ${step<5?`<button type="button" class="primary" data-go="${step+1}">${esc(STEPS[step+1].t)} →</button>`:""}</div>`;
+  setupAI();
+  if(focusId){ const el=document.getElementById(focusId); if(el){ el.focus(); } }
+}
+function soft(){ // perbarui panel & penanda tanpa merender ulang lembar isian
+  const v = validate(); renderSteps(v); renderPanel(v); renderDrafts();
+  const ni=$("#nipInfo"); if(ni) ni.textContent=nipInfo();
+  const tb=$("#totBiaya"); if(tb) tb.textContent=rupiah(S.programs.reduce((a,p)=>a+(Number(digits(p.biaya))||0),0));
+  document.querySelectorAll("[data-biaya]").forEach(el=>{ const p=S.programs[el.dataset.biaya]; if(p) el.textContent=p.biaya!==""?rupiah(digits(p.biaya)):""; });
+}
+function commit(){ saveStore(); }
+
+/* ---------- Event ---------- */
+document.addEventListener("input", e=>{
+  const el = e.target; const path = el.dataset?.path; if(!path) return;
+  let val = el.type==="checkbox" ? el.checked : el.value;
+  if(path==="nip"||path==="atasanNip") val = digits(val).slice(0,18);
+  if(/^programs\.\d+\.biaya$/.test(path)) val = digits(val);
+  if(path==="mkTahun"||path==="mkBulan") val = digits(val).slice(0,2);
+  if(val!==el.value && el.type!=="checkbox" && el.type!=="date"){ el.value = val; }
+  setPath(S,path,val);
+  if(path==="tmt"){ hitungMK(); }
+  commit();
+  if(el.dataset.rerender || el.type==="checkbox" && step===5) render(el.id); else soft();
+});
+document.addEventListener("change", e=>{
+  const el=e.target; if(el.id==="draftSel"){ store.active=el.value; S=store.drafts[store.active].state; commit(); render(); return; }
+  if(el.dataset?.path && el.tagName==="SELECT" && el.dataset.rerender===undefined){ soft(); }
+  if(el.dataset?.path==="jenjang"){ render(el.id); }
+});
+
+document.addEventListener("click", async e=>{
+  const b = e.target.closest("button,[data-step]"); if(!b) return;
+  const d = b.dataset;
+  if(d.step!==undefined){ step=Number(d.step); store.step=step; commit(); render(); window.scrollTo({top:0,behavior:"smooth"}); return; }
+  if(d.go!==undefined){ step=Number(d.go); store.step=step; commit(); render(); window.scrollTo({top:0,behavior:"smooth"}); return; }
+  if(d.jalur){ if(S.jalur!==d.jalur){ S.jalur=d.jalur; S.jenjang=""; } commit(); render(); return; }
+  if(d.lv){ setPath(S,d.lv,d.val); commit(); render(); return; }
+  if(d.deltk!==undefined){ S.teknis.splice(Number(d.deltk),1); if(!S.teknis.length) S.teknis.push({nama:"",now:"",level:""}); commit(); render(); return; }
+  if(d.addpreset){ const tl=targetLevel(); const empty=S.teknis.findIndex(t=>!t.nama.trim()); const row={nama:d.addpreset,now:"",level:tl}; if(empty>=0) S.teknis[empty]=row; else S.teknis.push(row); commit(); render(); return; }
+  if(d.delpg!==undefined){ S.programs.splice(Number(d.delpg),1); commit(); render(); return; }
+  if(d.tab){ hasilTab=d.tab; render(); return; }
+  if(d.copy!==undefined){ const r=formAnswers()[Number(d.copy)]; copyText(r[1], b); return; }
+  if(d.addaitk!==undefined){ const s=aiTk[Number(d.addaitk)]; if(s){ const empty=S.teknis.findIndex(t=>!t.nama.trim()); const row={nama:s.nama,now:"",level:String(s.level||targetLevel())}; if(empty>=0) S.teknis[empty]=row; else S.teknis.push(row); b.disabled=true; b.textContent="Ditambahkan"; commit(); soft(); } return; }
+  if(d.addaipg!==undefined){ const s=aiPg[Number(d.addaipg)]; if(s){ S.programs.push(s); b.disabled=true; b.textContent="Ditambahkan"; commit(); soft(); } return; }
+  switch(b.id){
+    case "addTk": S.teknis.push({nama:"",now:"",level:targetLevel()}); commit(); render("tk_"+(S.teknis.length-1)); break;
+    case "autoLv": { const tl=targetLevel(); MANAJERIAL.forEach(m=>S.manajerial[m[0]]=tl); S.sosial=tl; S.teknis.forEach(t=>{ if(t.nama && !t.level) t.level=tl; }); commit(); render(); toast(`Semua kompetensi manajerial dan sosial kultural diisi Level ${tl}`); break; }
+    case "addPg": { const y=S.periode; S.programs.push({id:uid(),kompetensi:"",indikator:"",sumber:"SKJ",metode:"",aktivitas:"",mulai:"",selesai:"",biaya:""}); commit(); render("pk_"+(S.programs.length-1)); break; }
+    case "btnNew": { const id=uid(); store.drafts[id]={state:blank(),updated:Date.now()}; store.active=id; S=store.drafts[id].state; step=0; store.step=0; commit(); render("f_nama"); toast("Draf baru dibuat"); break; }
+    case "btnDel": $("#delWrap").innerHTML=`<span class="confirm">Hapus draf ini? <button class="small danger" id="delYes">Ya, hapus</button><button class="small" id="delNo">Batal</button></span>`; break;
+    case "delNo": renderDrafts(); break;
+    case "delYes": { delete store.drafts[store.active]; if(!Object.keys(store.drafts).length){ const id=uid(); store.drafts[id]={state:blank(),updated:Date.now()}; } store.active=Object.keys(store.drafts)[0]; S=store.drafts[store.active].state; step=0; store.step=0; commit(); render(); toast("Draf dihapus"); break; }
+    case "useEx": S.contoh=false; commit(); render(); toast("Contoh dijadikan draf Anda. Ganti datanya."); break;
+    case "startBlank": { const was=store.active; store.drafts[was].state=blank(); S=store.drafts[was].state; step=0; store.step=0; commit(); render("f_nama"); break; }
+    case "copyAll": { const t=formAnswers().map(r=>r.length===1?`\n== ${r[0]} ==`:`${r[0]}: ${r[1]||"-"}`).join("\n").trim(); copyText(t,b); break; }
+    case "dlDoc": saveFile(`IDP_${(S.nama||"pegawai").replace(/[^\w]+/g,"_")}_${S.periode}.html`, `<!doctype html><html lang="id"><head><meta charset="utf-8"><title>IDP ${esc(S.nama)} ${esc(S.periode)}</title><style>@page{size:A4;margin:2cm}body{margin:0;padding:24px}</style></head><body>${docHTML()}</body></html>`, b); break;
+    case "dlJson": saveFile(`Draf_IDP_${(S.nama||"pegawai").replace(/[^\w]+/g,"_")}.json`, JSON.stringify({app:"idp-donggala",versi:1,data:S},null,2), b); break;
+    case "openJson": $("#fileIn").click(); break;
+    case "btnAiTk": runAiTk(b); break;
+    case "btnAiPg": runAiPg(b); break;
+  }
+});
+
+$("#fileIn").addEventListener("change", async e=>{
+  const f=e.target.files[0]; if(!f) return;
+  try{ const j=JSON.parse(await f.text()); const data=j.data||j; if(!("nama" in data)) throw 0;
+    const id=uid(); store.drafts[id]={state:Object.assign(blank(),data,{contoh:false}),updated:Date.now()}; store.active=id; S=store.drafts[id].state; step=0; store.step=0; commit(); render(); toast("Draf dibuka");
+  }catch(err){ toast("File ini bukan draf IDP yang valid"); }
+  e.target.value="";
+});
+
+async function copyText(t, btn){
+  try{ await navigator.clipboard.writeText(t); const o=btn.textContent; btn.textContent="Tersalin"; setTimeout(()=>btn.textContent=o,1400); }
+  catch(err){ const ta=document.createElement("textarea"); ta.value=t; ta.style.position="fixed"; ta.style.opacity="0"; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("Tersalin");}catch(e2){ toast("Salin manual: teks sudah dipilih"); } setTimeout(()=>ta.remove(),1500); }
+}
+
+let downloads = null, sample = null;
+async function saveFile(name, data, btn){
+  if(!downloads){
+    // Di luar penampil Claude (situs biasa di Chrome, Safari, Edge, dll.) unduh langsung dari peramban
+    try{
+      const type = name.endsWith(".json") ? "application/json" : "text/html";
+      const url = URL.createObjectURL(new Blob([data],{type:type+";charset=utf-8"}));
+      const a = document.createElement("a"); a.href=url; a.download=name; document.body.append(a); a.click(); a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url), 4000);
+      if(!window.claude) toast("File diunduh"); else toast("Jika file tidak terunduh, gunakan Salin.");
+    }catch(e){ toast("Unduhan tidak tersedia. Gunakan Salin."); }
+    return;
+  }
+  btn.disabled = true;
+  try{ await downloads.save({filename:name, data}); toast("File disimpan"); }
+  catch(e){ if(e?.code==="declined") toast("Unduhan dibatalkan"); else if(e?.code==="rate_limited") toast("Tunggu sebentar, lalu coba lagi"); else toast("File tidak bisa disimpan di tampilan ini"); }
+  finally{ btn.disabled=false; }
+}
+
+/* ---------- Saran Claude ---------- */
+let aiTk = [], aiPg = [];
+function setupAI(){
+  const a=$("#aiTk"), b=$("#aiPg");
+  if(a) a.hidden = !sample; if(b) b.hidden = !sample;
+  if(a && aiTk.length) drawAiTk(); if(b && aiPg.length) drawAiPg();
+}
+function aiErr(e){
+  const m = {not_granted:"Akses Claude tidak diizinkan untuk halaman ini.",rate_limited:"Terlalu banyak permintaan. Coba lagi nanti.",invalid_json:"Jawaban Claude tidak terbaca. Coba lagi.",session_expired:"Sesi berakhir. Masuk ulang ke Claude.",refused:"Claude tidak dapat memproses permintaan ini."};
+  return m[e?.code] || "Saran tidak berhasil dimuat. Coba lagi.";
+}
+function profil(){
+  return `Jabatan saat ini: ${S.jabatanNow||"-"}\nPerangkat daerah: ${S.opd||"-"} (Pemerintah Kabupaten Donggala, Sulawesi Tengah)\nRencana karier: ${S.jalur||"-"}, jenjang ${S.jenjang||"-"} (target level ${targetLevel()||"-"})\nRumpun jabatan: ${S.rumpun||"-"}\nJabatan target (harapan): ${S.harapan||"-"}\nPendidikan: ${S.pendidikan} ${S.jurusan}`;
+}
+async function runAiTk(btn){
+  if(!S.harapan.trim()){ toast("Isi jabatan target di Bagian II dulu"); return; }
+  const out=$("#aiTkOut"); btn.disabled=true; out.innerHTML=`<div class="hint">Claude sedang menyusun saran…</div>`;
+  try{
+    const r = await sample.json(`Anda membantu ASN pemerintah daerah di Indonesia menyusun Individual Development Plan (IDP).\n${profil()}\n\nUsulkan 4 sampai 6 kompetensi teknis yang dipersyaratkan untuk jabatan target, dengan nama mengikuti istilah Kamus Kompetensi Teknis instansi pembina jabatan tersebut bila Anda mengetahuinya. Target level 1-5 mengikuti jenjang jabatan target.\nBalas hanya dengan array JSON: [{"nama":"...","level":3,"alasan":"satu kalimat singkat dalam bahasa Indonesia"}]`, {modelTier:"default"});
+    aiTk = (Array.isArray(r)?r:[]).filter(x=>x&&x.nama).slice(0,8).map(x=>({nama:String(x.nama),level:Math.min(5,Math.max(1,Number(x.level)||Number(targetLevel())||2)),alasan:String(x.alasan||"")}));
+    drawAiTk();
+  }catch(e){ out.innerHTML=`<div class="hint">${esc(aiErr(e))}</div>`; if(e?.code==="not_granted"){ sample=null; setupAI(); } }
+  finally{ btn.disabled=false; }
+}
+function drawAiTk(){
+  const out=$("#aiTkOut"); if(!out) return;
+  const have=new Set(S.teknis.map(t=>t.nama.trim().toLowerCase()));
+  out.innerHTML = aiTk.length ? aiTk.map((s,i)=>`<div class="it"><div><b>${esc(s.nama)}</b> · Level ${s.level}<small>${esc(s.alasan)}</small></div><button type="button" class="small" data-addaitk="${i}" ${have.has(s.nama.toLowerCase())?"disabled":""}>${have.has(s.nama.toLowerCase())?"Sudah ada":"Tambahkan"}</button></div>`).join("") : `<div class="hint">Tidak ada saran.</div>`;
+}
+async function runAiPg(btn){
+  const tk=teknisList(); if(!tk.length){ toast("Isi kompetensi teknis di Bagian III dulu"); return; }
+  const out=$("#aiPgOut"); btn.disabled=true; out.innerHTML=`<div class="hint">Claude sedang menyusun usulan program…</div>`;
+  const metode = METODE.flatMap(g=>g.items);
+  try{
+    const r = await sample.json(`Anda membantu ASN pemerintah daerah di Indonesia menyusun Rencana Program Pengembangan (Bagian IV IDP) untuk periode ${S.periode}.\n${profil()}\nKompetensi teknis yang perlu dikembangkan: ${tk.map(t=>`${t.nama} (saat ini ${t.now||"?"}, target ${t.level||"?"})`).join("; ")}.\n\nSusun 4 sampai 6 program yang realistis untuk satu tahun dan anggaran daerah terbatas. Campurkan pelatihan, belajar dari orang lain (coaching/mentoring), dan penugasan di tempat kerja (pola 70-20-10). Setiap program harus terhubung langsung dengan satu kompetensi di atas. IDP bukan daftar usulan pelatihan.\n"metode" WAJIB salah satu persis dari: ${metode.join(" | ")}.\n"sumber" salah satu dari SKJ, HCDP, SKP. Biaya dalam rupiah (angka bulat, 0 bila tanpa biaya). Bulan 1-12.\nBalas hanya array JSON: [{"kompetensi":"...","indikator":"Level n: ...","sumber":"SKJ","metode":"...","aktivitas":"...","bulanMulai":2,"bulanSelesai":3,"biaya":0}]`, {modelTier:"default"});
+    const y=S.periode, pad=n=>String(Math.min(12,Math.max(1,Number(n)||1))).padStart(2,"0");
+    const last=m=>new Date(Number(y), Number(m), 0).getDate();
+    aiPg = (Array.isArray(r)?r:[]).filter(x=>x&&x.kompetensi).slice(0,8).map(x=>{ const bm=pad(x.bulanMulai), bs=pad(Math.max(Number(x.bulanSelesai)||1,Number(x.bulanMulai)||1)); return {id:uid(),kompetensi:String(x.kompetensi),indikator:String(x.indikator||""),sumber:["SKJ","HCDP","SKP"].includes(x.sumber)?x.sumber:"SKJ",metode:metode.includes(x.metode)?x.metode:"",aktivitas:String(x.aktivitas||""),mulai:`${y}-${bm}-01`,selesai:`${y}-${bs}-${last(bs)}`,biaya:String(Math.max(0,Math.round(Number(x.biaya)||0)))}; });
+    drawAiPg();
+  }catch(e){ out.innerHTML=`<div class="hint">${esc(aiErr(e))}</div>`; if(e?.code==="not_granted"){ sample=null; setupAI(); } }
+  finally{ btn.disabled=false; }
+}
+function drawAiPg(){
+  const out=$("#aiPgOut"); if(!out) return;
+  out.innerHTML = aiPg.length ? aiPg.map((s,i)=>`<div class="it"><div><b>${esc(s.aktivitas)}</b><small>${esc(s.metode||"metode perlu dipilih")} · ${esc(s.kompetensi)} · ${tgl(s.mulai)}–${tgl(s.selesai)} · ${rupiah(s.biaya)}</small></div><button type="button" class="small" data-addaipg="${i}">Tambahkan</button></div>`).join("") : `<div class="hint">Tidak ada usulan.</div>`;
+}
+
+/* ---------- Mulai ---------- */
+render();
+if(window.claude?.use){
+  claude.use("downloads").then(d=>{ downloads=d; }).catch(()=>{});
+  claude.use("sample").then(s=>{ sample=s; setupAI(); }).catch(()=>{});
+}
+})();
+</script>
+
+</body>
+</html>
