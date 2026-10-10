@@ -2,7 +2,9 @@
 
 Aplikasi web untuk menyusun Rencana Pengembangan Individu (Individual Development Plan/IDP) ASN Kabupaten Donggala.
 
-**Buka aplikasi:** https://bidangdpkakabupatendonggala.github.io/IDP-BKPSDM-DONGGALA/
+**Buka aplikasi:** https://idp-asn-donggala.web.app
+
+Alamat cadangan (GitHub Pages): https://bidangdpkakabupatendonggala.github.io/IDP-BKPSDM-DONGGALA/
 
 - Isian Bagian I–V sesuai Formulir IDP, dengan level kompetensi otomatis menurut jenjang jabatan target
 - Pemeriksaan kelengkapan dan mutu isian
